@@ -1,0 +1,224 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+:root {
+  --primary-color: #fff;
+  --bg-button-links: rgba(255, 255, 255, 0.1);
+  --border-button-links: rgba(255, 255, 255, 0.5);
+  --bg-body: url(./assets/bg-mobile.jpg);
+
+  --bg-button-hove: rgba(255, 255, 255, 0.05);
+  --border-button-hove: #fff;
+
+  --bg-social-links: rgba(255, 255, 255, 0.2);
+
+  --switch-bg-url: url(./assets/moon-stars.svg);
+}
+.light {
+  --primary-color: #000;
+  --bg-button-links: rgba(0, 0, 0, 0.05);
+  --border-button-links: rgba(0, 0, 0, 0.5);
+  --bg-body: url(./assets/bg-mobile-light.jpg);
+
+  --bg-button-hove: rgba(0, 0, 0, 0.02);
+  --border-button-hove: #000;
+
+  --bg-social-links: rgba(0, 0, 0, 0.05);
+
+  --switch-bg-url: url(./assets/sun.svg);
+
+  --img-bg: url(./assets/avatar.png);
+}
+
+body {
+  /* background-image: url(../../assets/assets/bg-mobile.jpg);
+    background-repeat: no-repeat;
+    background-position: top center;
+    background-size: cover; */
+  background: var(--bg-body) no-repeat top center/cover;
+  height: 100vh;
+}
+body * {
+  font-family: "Inter", sans-serif;
+  color: var(--primary-color);
+}
+#container {
+  width: 100%;
+  max-width: 588px;
+  margin: 56px auto 0px;
+  padding: 0 24px;
+}
+/* Profile */
+#profile {
+  text-align: center;
+  padding: 24px;
+}
+#profile img {
+  width: 112px;
+  height: 112px;
+  border-radius: 50%;
+  outline: 4px solid var(--border-button-hove);
+  /* background-image: var(--img-bg); */
+}
+#profile img:hover {
+  box-shadow: -20px 20px 100px 30px var(--bg-button-links);
+}
+.light #profile img:hover {
+  box-shadow: -5px 5px 200px 30px rgba(0, 0, 0, .3);
+}
+#profile p {
+  font-weight: 500;
+  line-height: 24px;
+  margin-top: 8px;
+}
+#profile p a{
+  text-decoration: none;
+}
+/* Switch */
+#switch {
+  position: relative;
+  width: 64px;
+ 
+  margin: 4px auto;
+}
+
+#switch button {
+  width: 32px;
+  height: 32px;
+  background: #fff var(--switch-bg-url) no-repeat center;
+  border: 0;
+  border-radius: 50%;
+
+  position: absolute;
+  top: 50%; 
+  /* left: 0;  */
+  z-index: 1;
+  transform: translateY(-50%);
+  animation: slide-out .5s;
+  transition: background .4s;
+}
+#switch button:hover {
+  outline: 8px solid var(--bg-button-links);
+}
+
+.light #switch button {
+  animation: slide-in .4s forwards;
+}
+
+#switch span {
+  display: block;
+  width: 64px;
+  height: 24px;
+  border-radius: 9999px;
+  background-color: var(--bg-button-links);
+  border: 1px solid var(--border-button-links);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+
+
+/* Button links */
+ul {
+  list-style: none;
+
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  padding: 24px 0px;
+}
+ul li a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 16px 24px;
+
+  border-radius: 8px;
+  border: 1px solid var(--border-button-links);
+  background-color: var(--bg-social-links);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+
+  font-weight: 500;
+  text-decoration: none;
+
+  transition: background 0.2s;
+}
+ul li a:hover {
+  border: 1.5px solid var(--primary-color);
+  background-color: var(--bg-button-hove);
+}
+
+#social-links {
+  display: flex;
+  justify-content: center;
+
+  padding: 24px 0px;
+
+  font-size: 24px;
+}
+
+#social-links a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding: 16px;
+  border-radius: 50%;
+
+  transition: background-color 0.2s;
+}
+
+#social-links a:hover {
+  background-color: var(--bg-social-links);
+}
+/* footer {
+
+}  */
+footer p {
+  font-size: 14px;
+  padding: 24px 0px;
+  text-align: center;
+}
+footer span {
+  font-size: 18px;
+}
+footer a {
+  text-decoration: underline;
+  color: var(--primary-color);
+}
+
+/* Media Queries */
+
+@media (min-width:700px){
+  :root {
+    --bg-desktop-url: url(./assets/bg-desktop.jpg); 
+
+  }
+
+  .light {
+    --bg-desktop-url: url(./assets/bg-desktop-light.jpg);
+  }
+}
+
+/* Animation Keyframes*/
+
+@keyframes slide-in {
+  0%{
+    left: 0;
+  }
+  100%{
+    left: 50%;
+  }
+}
+
+@keyframes slide-out {
+  0%{
+    left: 50%;
+  }
+  100%{
+    left: 0%;
+  }
+}
